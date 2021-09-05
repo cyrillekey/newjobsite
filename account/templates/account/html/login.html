@@ -1,0 +1,44 @@
+{%extends 'displayjob/html/base.html'%}
+{% block content %}
+<div class="form-modal">
+    
+    <div class="form-toggle">
+        <button id="login-toggle">log in</button>
+    </div>
+
+    <div id="login-form">
+        <form method="POST">
+            {% csrf_token %}
+            
+                
+            {% for field in loginform %}
+                {{field}}
+    
+            {%endfor%} 
+
+            {% for field in loginform %}
+                {% for error in field.errors %}
+            <p style="font-size: smaller; color:red;text-align: center;">{{error | escape}}</p>
+                {% endfor %}
+            {% endfor %}
+                {% if loginform.non_field_errors %}
+            <p style="font-size: smaller; color:red;text-align: center;">{{loginform.non_field_errors}}</p>
+
+                {% endif %}
+            
+                
+            
+            <button type="submit" class="btn login">login</button>
+            <p><a href="">Forgotten password?</a></p>
+            <p><a href="{% url 'signup' %}">Dont have an Account ?</a></p>
+
+            <hr/>
+            <button type="button" class="btn -box-sd-effect"> <i class="fa fa-google fa-lg" aria-hidden="true"></i> sign in with google</button>
+            <button type="button" class="btn -box-sd-effect"> <i class="fa fa-linkedin fa-lg" aria-hidden="true"></i> sign in with linkedin</button>
+            <button type="button" class="btn -box-sd-effect"> <i class="fa fa-windows fa-lg" aria-hidden="true"></i> sign in with microsoft</button>
+        </form>
+    </div>
+
+</div>
+
+{%endblock%}

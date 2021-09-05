@@ -1,0 +1,47 @@
+{%extends 'displayjob/html/base.html' %}
+{% block content%}
+
+<div class="form-modal">
+    
+    <div class="form-toggle">
+        <button id="signup-toggle">sign up</button>
+    </div>
+
+   
+    
+
+    <div id="signup-form">
+        <form method="POST">
+            
+            {% csrf_token %}
+                
+            {% for field in registration_form %}
+                {{field}}
+
+                {% for error in field.errors %}
+            <p style="font-size: smaller; color:red;text-align: center;">{{error | escape}}</p>
+    
+            {%endfor%} 
+            {% if loginform.non_field_errors %}
+            <p style="font-size: smaller; color:red;text-align: center;">{{loginform.non_field_errors}}</p>
+
+                {% endif %}
+            {%endfor%}
+
+             
+
+            <button type="submit" class="btn signup">create account</button>
+            <p><a href="{% url 'login' %}">Login instead ?</a></p>
+
+            <p>Clicking <strong>create account</strong> means that you are agree to our <a href="javascript:void(0)">terms of services</a>.</p>
+            <hr/>
+            <button type="button" class="btn -box-sd-effect"> <i class="fa fa-google fa-lg" aria-hidden="true"></i> sign up with google</button>
+            <button type="button" class="btn -box-sd-effect"> <i class="fa fa-linkedin fa-lg" aria-hidden="true"></i> sign up with linkedin</button>
+            <button type="button" class="btn -box-sd-effect"> <i class="fa fa-windows fa-lg" aria-hidden="true"></i> sign up with microsoft</button>
+        </form>
+    </div>
+
+</div>
+
+
+{%endblock%}

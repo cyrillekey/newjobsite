@@ -1,0 +1,155 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script src="{% static 'main.js' %}"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <title>Home</title>
+</head>
+
+<body>
+
+  <body>
+
+    <nav class="navbar navbar-default navbar-fixed-top" id="top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navopenclose"
+            aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <p><a href="{% url 'home' %}" class="navbar-brand">Job Portal</a></p>
+        </div>
+        <!-- <Whole Navigation bar is in Collapseable div> -->
+          
+        <div class="collapse navbar-collapse" id="navopenclose">
+          {% if request.user.is_authenticated %}
+          <ul class="nav navbar-nav">
+            <li class="dropdown">
+              <a href="{% url 'login' %}">My jobs
+              </a>
+
+            </li>
+            <li class="dropdown">
+              <a href="{% url 'school' %}">School info
+              </a>
+
+            </li>
+            <li class="dropdown">
+              <a href="{% url 'login' %}">All Jobs
+              </a>
+
+            </li>
+            <li class="dropdown">
+              <a href="{% url 'login' %}">Account
+              </a>
+
+            </li>
+         </ul>
+         {% else %}
+         <ul class="nav navbar-nav">
+          <li class="dropdown">
+            <a href="{% url 'login' %}">All jobs
+            </a>
+
+          </li>
+          <li class="dropdown">
+            <a href="{% url 'login' %}">About Us
+            </a>
+
+          </li>
+          <li class="dropdown">
+            <a href="{% url 'login' %}">Search
+            </a>
+
+          </li>
+       </ul>
+         {%endif%}
+          <ul class="nav navbar-nav navbar-right">
+            {% if request.user.is_authenticated %}
+            <li><a>Hello, {{request.user.username}}</a></li>
+            <li><a href="{% url 'logout' %}" class="navbar-right" style="margin-left: 10px;"><i class="glyphicon glyphicon-log-in"></i> Logout</a></li>
+            {% else %}
+            <li><a href="{% url 'login' %}" class="navbar-right"><i class="glyphicon glyphicon-log-in"></i> Login</a></li>
+            <li><a href="{% url 'signup' %}"><i class="glyphicon glyphicon-user"></i> Sign UP</a></li>
+            {% endif %}
+            
+          </ul>
+    </nav>
+    </div>
+
+
+
+    
+
+
+    {% block content %} {%endblock%}
+
+
+      <!-- Site footer -->
+      <footer class="site-footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12 col-md-6">
+              <h6>About</h6>
+              <p class="text-justify">Jobs portal is a service to prepare you to take on jobs in the tech industry. We provide you with all the information about a job all the necessary skills you will need to take on the job and based on your education details we will tell you how suitable you arefor the job and what other new skills you need to take on the job</p>
+            </div>
+  
+            <div class="col-xs-6 col-md-3">
+              <h6>Categories</h6>
+              <ul class="footer-links">
+                <li><a href="http://scanfcode.com/category/c-language/">C</a></li>
+                <li><a href="http://scanfcode.com/category/front-end-development/">UI Design</a></li>
+                <li><a href="http://scanfcode.com/category/back-end-development/">PHP</a></li>
+                <li><a href="http://scanfcode.com/category/java-programming-language/">Java</a></li>
+                <li><a href="http://scanfcode.com/category/android/">Android</a></li>
+                <li><a href="http://scanfcode.com/category/templates/">Templates</a></li>
+              </ul>
+            </div>
+  
+            <div class="col-xs-6 col-md-3">
+              <h6>Quick Links</h6>
+              <ul class="footer-links">
+                <li><a href="{% url 'login'%}">Login</a></li>
+                <li><a href="{% url 'signup'%}">Signup</a></li>
+                <li><a href="{% url 'login'%}">Tech jobs</a></li>
+                <li><a href="#top">Up</a></li>
+              </ul>
+            </div>
+          </div>
+          <hr>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-8 col-sm-6 col-xs-12">
+              <p class="copyright-text">Copyright &copy; <script>document.write(new Date().getFullYear())</script>  All Rights Reserved by 
+           <a href="#">Scanfcode</a>.
+              </p>
+            </div>
+  
+            <div class="col-md-4 col-sm-6 col-xs-12">
+              <ul class="social-icons">
+                <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
+                <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>   
+              </ul>
+            </div>
+          </div>
+        </div>
+  </footer>
+  </body>
+</body>
+
+</html>

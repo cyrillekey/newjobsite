@@ -1,0 +1,90 @@
+{%extends 'displayjob/html/base.html'%}
+
+{% block content%}
+<div class="container" id="one">
+  <div class="row">
+    <div class="col-xs-12">
+      
+      <h2 class="objective">Check your suitability for jobs all accross the world</h2>
+
+
+  <form class="form-group form-inline text-center">
+   
+    <input type="text" class="form-control " placeholder="Enter Job Title,Desigination,Keywords" style="width:300px;margin:10px;">
+ 
+  
+  <select class="form-control"style="width:300px;margin:10px;">
+            <option>Select Experience</option>
+            <option>0 Year | Fresher</option>
+            <option>1 Year</option>
+            <option>2 Years</option>
+            <option>3 Years</option>
+            <option>4 Years</option>
+            <option>5 Year</option>
+            <option>6 Years</option>
+            <option>7 Years</option>
+            <option>8 Years</option>
+            <option>9 Years</option>
+            <option>10 Years</option>
+            <option>More than 10 Years</option>
+            </select>
+ <p class="text-center">
+   <button type="submit" class="btn-primary text-center form-control"style="width:300px; margin-left:20px">Search</button>
+    </p>
+  </form>
+      <h3 class="text-center text-primary">OR</hr>
+
+        <div style="height:0px;overflow:hidden;">
+          <input type="file" id="fileInput" name="fileInput" />
+        </div>
+        <p class="text-center clear-float">
+          <a href=!-- End of Navigation and begining of Jumbotron -->
+      
+        
+        
+            <!-- End of Jumbotron -->
+            </a>
+        </p>
+        <p class="text-center text-primary">We will tell you how ready you are for a job across the tech space</p>
+
+
+    </div>
+  </div>
+</div>
+<div class="samplejobs">
+  <h1 style="text-align: center; margin-top: 20px; text-transform: capitalize;">Sample jobs
+  </h1>
+
+</div>
+
+
+{% for job in jobs%}
+        
+<div class="blog-card">
+  <div class="meta">
+    <div class="photo" style="background-image: url({{job.job_thumnail}})"></div>
+    <!--<ul class="details">
+      <li class="author"><a href="#">John Doe</a></li>
+      <li class="date">Aug. 24, 2015</li>
+      <li class="tags">
+        <ul>
+          <li><a href="#">Learn</a></li>
+          <li><a href="#">Code</a></li>
+          <li><a href="#">HTML</a></li>
+          <li><a href="#">CSS</a></li>
+        </ul>
+      </li>
+    </ul>-->
+  </div>
+  <div class="description">
+    <h1 style="text-transform: capitalize;">{{job.job_name}}</h1>
+    <h2>Opening a door to the future</h2>
+    <p>{{job.job_description | slice:"0:150"}}</p>
+    <p class="read-more">
+      <a href="{% url 'jobinfo' username=job.slug %}">Read More</a>
+    </p>
+  </div>
+</div>
+      {% endfor %}
+
+    {% endblock%}    

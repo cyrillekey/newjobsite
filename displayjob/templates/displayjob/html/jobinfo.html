@@ -1,0 +1,77 @@
+{% extends 'displayjob/html/base.html' %}
+
+{%block content%}
+<div class="wrapper" style="margin-top: 10vh;">
+    <!-- Begin Top Buttons -->
+    <div class="top-panel">
+      <div class="right username" id="initial">t
+      </div>
+      <section class="left">
+      <div class="short-nav">
+        <div id="social-share">
+          <span class="entypo-share"></span>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+      <!-- Begin Panel Content -->
+      <div class="content">
+        <!-- Social Media Links -->
+
+        <!-- Name & Title Objects -->
+        {%for job in username%}
+        <div class="contact-info">
+          <span class="entypo-vcard"></span>
+          <h1>
+              {{job.job_name}}</h1>
+              
+          <h2>Job Description</h2>
+          <p>{{job.job_description}}</p>
+          <hr />
+          <span class="entypo-graduation-cap"></span>
+           <dl>{%for skill in skills%}
+               {% ifequal job.job_name skill.inter_job_id %}
+               {{skill.inter_skill_id}}
+               {% endifequal %}
+               {%endfor%}
+             <dt>Skill Set</dt>
+             <dd>Design</dd>
+             <dd>Front-End Development</dd>
+             <dd>Responsive Design</dd>
+             <dd>Mobile Development</dd>
+             <dd>Web Graphics</dd>
+             <dd>User Experience</dd>
+             <dd>User Interface</dd>
+             <dd>Branding/Identity</dd>
+             <dd>Email Marketing</dd>
+             <dd>S.M.M.</dd>
+           </dl>
+        </div>     
+        <!-- Clear Positioned V-Card Objects -->
+        <div class="clearfix"></div>
+        <!-- Begin Contact Methods -->
+        <div class="wepa">
+          <table>
+            <thead>
+              <th><span class="entypo-monitor"></span> Website:</th>
+              <th><span class="entypo-mail"></span> Email:</th>
+              <th><span class="entypo-mobile"></span> Phone:</th>
+              <th><span class="entypo-map"></span> Address:</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td><a href="http://timruby.me">www.timruby.me</a></td>
+                <td><a href="mailto:hello@timruby.me">hello@timruby.me</a></td>
+                <td><span class="entypo-lock"></span> Private</td>
+                <td><span class="entypo-lock"></span> Private</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+  </div>
+  {%endfor%}
+  <!-- Add User Modal Window -->
+  
+
+{%endblock%}
