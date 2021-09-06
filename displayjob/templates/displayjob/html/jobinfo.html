@@ -1,10 +1,10 @@
 {% extends 'displayjob/html/base.html' %}
 
 {%block content%}
-<div class="wrapper" style="margin-top: 10vh;width: 95%;">
+<div class="wrapper" style="margin-top: 14vh;width: 95%;">
     <!-- Begin Top Buttons -->
     <div class="top-panel">
-      <div class="right username" id="initial">t
+      <div class="right username" id="initial">+
       </div>
       <section class="left">
       <div class="short-nav">
@@ -29,24 +29,24 @@
           <p>{{job.job_description}}</p>
           <hr />
           <span class="entypo-graduation-cap"></span>
-           <dl>{%for skill in skills%}
-               {% ifequal job.job_name skill.inter_job_id %}
-               {{skill.inter_skill_id}}
-               {% endifequal %}
-               {%endfor%}
-             <dt>Skill Set</dt>
-             <dd>Design</dd>
-             <dd>Front-End Development</dd>
-             <dd>Responsive Design</dd>
-             <dd>Mobile Development</dd>
-             <dd>Web Graphics</dd>
-             <dd>User Experience</dd>
-             <dd>User Interface</dd>
-             <dd>Branding/Identity</dd>
-             <dd>Email Marketing</dd>
-             <dd>S.M.M.</dd>
+           <dl>
+            
+             <dt>Required Skills</dt>
+             {%for skill in skills%} 
+            <dd>{{skill.inter_skill_id}}</dd>
+            {%endfor%} 
            </dl>
-        </div>     
+           <hr />
+           <span class="entypo-graduation-cap"></span>
+            <dl>
+             
+              <dt>Common Education Requirements</dt>
+              {%for edu  in job.job_education%} 
+             <dd>{{edu}}</dd>
+             {%endfor%} 
+            </dl>
+        </div>
+
         <!-- Clear Positioned V-Card Objects -->
         <div class="clearfix"></div>
         <!-- Begin Contact Methods -->

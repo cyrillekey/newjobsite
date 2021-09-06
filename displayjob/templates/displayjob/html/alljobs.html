@@ -1,0 +1,42 @@
+{%extends 'displayjob/html/base.html'%}
+{%block content%}
+<div class="grid" style="margin-top:12vh">
+    <main class="main verticalScrollWrapper">
+      <div class="search" >
+        <input class="mango" style="display:block; width:80%; border:solid;border-radius:2px; height:40px; margin-left:8%;padding:10px;" placeholder="What are you seeking?"/>
+      </div>
+      {% for job in jobs%}
+        
+<div class="blog-card">
+  <div class="meta">
+    <div class="photo" style="background-image: url({{job.job_thumnail}})"></div>
+    <!--<ul class="details">
+      <li class="author"><a href="#">John Doe</a></li>
+      <li class="date">Aug. 24, 2015</li>
+      <li class="tags">
+        <ul>
+          <li><a href="#">Learn</a></li>
+          <li><a href="#">Code</a></li>
+          <li><a href="#">HTML</a></li>
+          <li><a href="#">CSS</a></li>
+        </ul>
+      </li>
+    </ul>-->
+  </div>
+  <div class="description">
+    <h1 style="text-transform: capitalize;">{{job.job_name}}</h1>
+    <h2>Opening a door to the future</h2>
+    <p>{{job.job_description | slice:"0:150"}}</p>
+    <p class="read-more">
+      <a href="{% url 'jobinfo' username=job.slug %}">Read More</a>
+    </p>
+  </div>
+</div>
+      {% endfor %}
+      
+      
+    </main>
+    
+  </div>
+
+{%endblock%}

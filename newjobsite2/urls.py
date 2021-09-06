@@ -28,6 +28,7 @@ urlpatterns = [
     path('logout',views.logout_view,name='logout'),
     path('school/',views.school,name='school'),
     #path('adddata/',views.inserttodatabase,name='data'),
-    path('jobinfo/<username>/',displayview.jobinfo,name='jobinfo')
+    path('jobinfo/<username>/',displayview.jobinfo,name='jobinfo'),
+    path('alljobs/',displayview.alljobs,name="alljobs")
 ]
 urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
