@@ -36,3 +36,5 @@ def search(request):
         job=Job.objects.all().filter(job_name__contains=searchword) | Job.objects.all().filter(job_description__contains=searchword)
       
         return render(request,'displayjob/html/alljobs.html',{'jobs':job,'name':'Alljobs'})
+    else:
+        return redirect('login')    
