@@ -8,9 +8,9 @@
       <h2 class="objective">Check your suitability for jobs all accross the world</h2>
 
 
-  <form class="form-group form-inline text-center">
+  <form class="form-group form-inline text-center" action="{% url 'search' %}">
    
-    <input type="text" class="form-control " placeholder="Enter Job Title,Desigination,Keywords" style="width:300px;margin:10px;">
+    <input type="text" class="form-control " placeholder="Enter Job Title,Desigination,Keywords" style="width:300px;margin:10px;" name="searchword">
  
   
   <select class="form-control"style="width:300px;margin:10px;">

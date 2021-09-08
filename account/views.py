@@ -33,7 +33,7 @@ def login(request):
     else:
         form=AccountAuthentication() 
         context['loginform']=form           
-    return render(request, 'account/html/login.html',context)     
+    return render(request, 'account/html/login.html',context,{'name':'home'})     
 
 def signup(request):
     context={}
@@ -51,14 +51,14 @@ def signup(request):
                 dj_login(request,account)
                 return redirect('home')
             else:
-                print("this is what is failing the loop")
+                
                 context['registration_form']=form        
 
         else:
             print("and not this")
             form=RegistrationForm()
             context['registration_form']=form
-        return render(request, 'account/html/signup.html',context)
+        return render(request, 'account/html/signup.html',context,{'name':'Signup'})
     else:
         return redirect('home')                
               
@@ -69,7 +69,7 @@ def logout_view(request):
 def school(request):
     user=request.user
     if user.is_authenticated:
-        return render(request,'account/html/school.html')
+        return render(request,'account/html/school.html',{'name':'School information'})
     else:
         return redirect('login')
 """
