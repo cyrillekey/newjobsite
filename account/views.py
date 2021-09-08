@@ -33,7 +33,7 @@ def login(request):
     else:
         form=AccountAuthentication() 
         context['loginform']=form           
-    return render(request, 'account/html/login.html',context,{'name':'home'})     
+    return render(request, 'account/html/login.html',context)     
 
 def signup(request):
     context={}
@@ -58,7 +58,7 @@ def signup(request):
             print("and not this")
             form=RegistrationForm()
             context['registration_form']=form
-        return render(request, 'account/html/signup.html',context,{'name':'Signup'})
+        return render(request, 'account/html/signup.html',context)
     else:
         return redirect('home')                
               
