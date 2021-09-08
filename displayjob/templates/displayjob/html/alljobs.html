@@ -1,12 +1,14 @@
 {%extends 'displayjob/html/base.html'%}
 {%block content%}
 <div class="grid" style="margin-top:12vh">
+  
     <main class="main verticalScrollWrapper">
+      <form action="{% url 'search' %}">
       <div class="search" >
-        <input class="mango" style="display:block; width:80%; border:solid;border-radius:2px; height:40px; margin-left:8%;padding:10px;" placeholder="What are you seeking?"/>
+        <input class="mango" style="display:block; width:80%; border:solid;border-radius:2px; height:40px; margin-left:8%;padding:10px;" placeholder="What are you seeking?" name="searchword"/>
       </div>
       {% for job in jobs%}
-        
+    </form>
 <div class="blog-card">
   <div class="meta">
     <div class="photo" style="background-image: url({{job.job_thumnail}})"></div>
