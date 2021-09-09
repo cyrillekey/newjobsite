@@ -27,9 +27,9 @@ urlpatterns = [
     path('signup/',views.signup,name='signup'),
     path('logout',views.logout_view,name='logout'),
     path('school/',views.school,name='school'),
-    #path('adddata/',views.inserttodatabase,name='data'),
+    path('adddata/',views.inserttodatabase,name='data'),
     path('jobinfo/<username>/',displayview.jobinfo,name='jobinfo'),
     path('alljobs/',displayview.alljobs,name="alljobs"),
-    path('searchres/',displayview.search,name="search"),
+    path('searchres/',displayview  .search,name="search"),
 ]
 urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
