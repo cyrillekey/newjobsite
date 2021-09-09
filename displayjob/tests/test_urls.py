@@ -1,7 +1,7 @@
 from django.test import SimpleTestCase
 from django.urls import reverse,resolve
 from displayjob.views import home,alljobs,search,jobinfo
-
+#test if the urls to display jobs work correctly
 class TestUrls(SimpleTestCase):
 
     def test_login_urls_resolves(self):

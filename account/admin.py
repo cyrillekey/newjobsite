@@ -3,6 +3,7 @@ from django.contrib.auth.admin import UserAdmin
 from .models import Account
 
 # Register your models here.
+#information that will be shown on the admin tab
 class AccountAdmin(UserAdmin):
     list_display=('email','username','date_joined','last_login','is_admin')
     search_fields=('email','username')

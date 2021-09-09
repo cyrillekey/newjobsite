@@ -2,6 +2,7 @@ from django.test import TestCase,Client
 from django.urls import reverse
 from account.models import Account,Educationinfo
 import json
+#test if the views render corrctly as specified
 class TestViews(TestCase):
     def setUp(self):
         self.client=Client()

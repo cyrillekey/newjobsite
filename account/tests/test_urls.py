@@ -1,7 +1,7 @@
 from django.test import SimpleTestCase
 from django.urls import reverse,resolve
 from account.views import login,logout_view,signup,school
-
+#test to accertain if the urls go to where they are intended to
 class TestUrls(SimpleTestCase):
 
     def test_login_urls_resolves(self):

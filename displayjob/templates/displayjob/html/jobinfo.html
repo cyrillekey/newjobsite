@@ -53,17 +53,17 @@
         <div class="wepa">
           <table>
             <thead>
-              <th><span class="entypo-monitor"></span> Website:</th>
-              <th><span class="entypo-mail"></span> Email:</th>
-              <th><span class="entypo-mobile"></span> Phone:</th>
-              <th><span class="entypo-map"></span> Address:</th>
+            
+              <th><span class="entypo-monitor"></span> Url links to reading materials</th>
+              
             </thead>
             <tbody>
               <tr>
-                <td><a href="http://timruby.me">www.timruby.me</a></td>
-                <td><a href="mailto:hello@timruby.me">hello@timruby.me</a></td>
-                <td><span class="entypo-lock"></span> Private</td>
-                <td><span class="entypo-lock"></span> Private</td>
+              <td>
+              {%for material in materials%}
+                <a href="{{material.material_url}}">{{material.material_name}}</a>
+                {%endfor%}
+                </td>
               </tr>
             </tbody>
           </table>
